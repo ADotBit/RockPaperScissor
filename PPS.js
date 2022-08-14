@@ -12,7 +12,7 @@ function getPlayerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-    if (playerSelection === "P"){
+    if (playerSelection.toUpperCase() === "P"){
         if (computerSelection === "Pierre"){
             alert("Egalité !");
         }else if (computerSelection === "F"){
@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection){
         }
     }
 
-    if (playerSelection === "F"){
+    if (playerSelection.toUpperCase() === "F"){
         if (computerSelection === "Pierre"){
             alert("Gagné ! La feuille bat la Pierre");
         }else if (computerSelection === "Feuille"){
@@ -32,7 +32,7 @@ function playRound(playerSelection, computerSelection){
         }
     }
 
-    if (playerSelection === "Ciseaux"){
+    if (playerSelection.toUpperCase() === "Ciseaux"){
         if (computerSelection === "Pierre"){
             alert("Perdu ! La pierre bat les ciseaux.");
         }else if (computerSelection === "Feuille"){
