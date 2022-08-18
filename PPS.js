@@ -1,49 +1,72 @@
-let choice = ["Pierre", "Feuille", "Ciseaux"];
 let playerScore = 0;
 let computerScore = 0;
 
+const pBtn = document.querySelector(".pierre");
+const fBtn = document.querySelector(".feuille");
+const cBtn = document.querySelector(".ciseaux");
+
+
+
 function getComputerChoice(){
+    let choice = ["pierre", "feuille", "ciseaux"];
     let randomChoice = Math.floor(Math.random()*choice.length);
-    return randomChoice;
+    return choice[randomChoice];
 }
 
 function playRound(playerSelection, computerSelection){
-    if (playerSelection === "P" && computerSelection === "Ciseaux"){
+    const logD = document.querySelector(".log");
+
+    if (playerSelection === "pierre" && computerSelection === "ciseaux"){
         playerScore++;
-        return "T'as gagné ! La pierre écrase les ciseaux.";
-    }else if (playerSelection === "F" && computer === "Pierre"){
+        const txt = document.createElement("p");
+        txt.textContent = "T'as gagné ! La pierre écrase les ciseaux.";
+        logD.appendChild(txt);
+    }else if (playerSelection === "feuille" && computerSelection === "pierre"){
         playerScore++;
-        return "T'as gagné ! La feuille couvre la pierre.";
-    }else if (playerSelection === "C" && computerSelection === "Feuille"){
+        const txt = document.createElement("p");
+        txt.textContent = "T'as gagné ! La feuille couvre la pierre.";
+        logD.appendChild(txt);
+    }else if (playerSelection === "ciseaux" && computerSelection === "feuille"){
         playerScore++;
-        return "T'as gagné ! Les ciseaux coupent la feuille.";
-    }else if (playerSelection === "P" && computerSelection === "Feuille"){
+        const txt = document.createElement("p");
+        txt.textContent = "T'as gagné ! Les ciseaux coupent la feuille.";
+        logD.appendChild(txt);
+    }else if (playerSelection === "pierre" && computerSelection === "feuille"){
         computerScore++;
-        return "Perdu ! La feuille couvre la pierre.";
-    }else if (playerSelection === "F" && computerSelection === "Ciseaux"){
+        const txt = document.createElement("p");
+        txt.textContent = "Perdu ! La feuille couvre la pierre.";
+        logD.appendChild(txt);
+    }else if (playerSelection === "feuille" && computerSelection === "ciseaux"){
         computerScore++;
-        return "Perdu ! Les ciseaux coupent la feuille.";
-    }else if (playerSelection === "C" && computerSelection === "Pierre"){
+        const txt = document.createElement("p");
+        txt.textContent = "Perdu ! Les ciseaux coupent la feuille.";
+        logD.appendChild(txt);
+    }else if (playerSelection === "ciseaux" && computerSelection === "pierre"){
         computerScore++;
-        return "Perdu ! La pierre écrase les ciseaux."
-    }else{
-        return "It's a tie."
+        const txt = document.createElement("p");
+        txt.textContent = "Perdu ! La pierre écrase les ciseaux."
+        logD.appendChild(txt);
+    }else if (playerSelection === computerSelection){
+        const txt = document.createElement("p");
+        txt.textContent = `Egalité ! Vous avez tous les deux choisis ${playerSelection}`;
+        logD.appendChild(txt);
     }
 }
 
-function game(){
-    for (let round = 0; round < 5; round++){
-        const playerSelection = prompt("Choississez P pour Pierre, F pour Feuille ou C pour Ciseaux: ").toUpperCase;
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
+pBtn.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = "pierre";
+    playRound(computerSelection, playerSelection)
+})
 
-    if (playerScore > computerScore){
-        return "Vous avez gagné la partie.";
-    }else if (computerScore > playerScore){
-        return "Vous avez perdu la partie.";
-    }
+fBtn.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = "feuille";
+    playRound(computerSelection, playerSelection)
+})
 
-}
-
-game()
+cBtn.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = "ciseaux";
+    playRound(computerSelection, playerSelection)
+})
