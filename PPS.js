@@ -10,7 +10,7 @@ buttons.forEach(button => {
     button.addEventListener("click", () => {
         const computerSelection = getComputerChoice();
         const playerSelection = `${button.className}`; 
-        playRound(computerSelection, playerSelection);
+        playRound(playerSelection, computerSelection);
         updateScore(playerScore, computerScore);
         checkWinner(playerScore, computerScore);
     })
@@ -27,13 +27,13 @@ function playRound(playerSelection, computerSelection){
     const txt = document.createElement("p");
     if (playerSelection === "pierre" && computerSelection === "ciseaux"){
         playerScore++;
-        txt.textContent = "T'as gagné ! La pierre écrase les ciseaux.";
+        txt.textContent = "Gagné ! La pierre écrase les ciseaux.";
     }else if (playerSelection === "feuille" && computerSelection === "pierre"){
         playerScore++;
-        txt.textContent = "T'as gagné ! La feuille couvre la pierre.";
+        txt.textContent = "Gagné ! La feuille couvre la pierre.";
     }else if (playerSelection === "ciseaux" && computerSelection === "feuille"){
         playerScore++;
-        txt.textContent = "T'as gagné ! Les ciseaux coupent la feuille.";
+        txt.textContent = "Gagné ! Les ciseaux coupent la feuille.";
     }else if (playerSelection === "pierre" && computerSelection === "feuille"){
         computerScore++;
         txt.textContent = "Perdu ! La feuille couvre la pierre.";
