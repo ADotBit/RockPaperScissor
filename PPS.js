@@ -3,13 +3,16 @@ let computerScore = 0;
 const logD = document.querySelector(".log");
 const playerRun = document.querySelector(".player");
 const computerRun = document.querySelector(".computer");
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("#btns");
+
 //create the text to indicate who wins
 const txt = document.createElement("p");
 const h2 = document.createElement("h2")
+
 //Reset the game by reloading the page
 const resetBtn = document.querySelector(".reset")
 resetBtn.addEventListener("click", () => location.reload())
+
 //Make button and game works
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -21,12 +24,20 @@ buttons.forEach(button => {
     })
 })
 
+//disable buttons
+function disableButtons(){
+    buttons.forEach(button => {
+        button.disabled = true;
+    })
+}
+
 // Make computer choice  in array
 function getComputerChoice(){
     let choice = ["pierre", "feuille", "ciseaux"];
     let randomChoice = Math.floor(Math.random()*choice.length);
     return choice[randomChoice]; //I forgot the brackets to precise it is an array
 }
+
 // Make the score / decide who wins
 function playRound(playerSelection, computerSelection){
     if (playerSelection === "pierre" && computerSelection === "ciseaux"){
@@ -61,11 +72,12 @@ function updateScore(playerScore, computerScore){
 
 function checkWinner(playerScore, computerScore) {
     if (playerScore === 5){
-        h2.textContent = `Vous avez gagné ${playerScore} points contre ${computerScore} points.`
-        logD.append(h2);
+        h2.textContent = `Vous avez gagné ${playerScore} à ${computerScore} contre l'ordinateur !`
+        disableButtons()
     }else if (computerScore === 5){
-        h2.textContent = `Vous avez perdu ${playerScore} points contre ${computerScore} points.`
-        logD.append(h2);
+        h2.textContent = `Vous avez perdu ${playerScore} à ${computerScore} contre l'ordinateur..`
+        disableButtons()
     }
-        
+    logD.append(h2);
+    
 }
