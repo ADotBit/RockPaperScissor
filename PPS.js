@@ -4,8 +4,13 @@ const logD = document.querySelector(".log");
 const playerRun = document.querySelector(".player");
 const computerRun = document.querySelector(".computer");
 const buttons = document.querySelectorAll("button");
-
-//Make button
+//create the text to indicate who wins
+const txt = document.createElement("p");
+const h2 = document.createElement("h2")
+//Reset the game by reloading the page
+const resetBtn = document.querySelector(".reset")
+resetBtn.addEventListener("click", () => location.reload())
+//Make button and game works
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const computerSelection = getComputerChoice();
@@ -22,9 +27,8 @@ function getComputerChoice(){
     let randomChoice = Math.floor(Math.random()*choice.length);
     return choice[randomChoice]; //I forgot the brackets to precise it is an array
 }
-
+// Make the score / decide who wins
 function playRound(playerSelection, computerSelection){
-    const txt = document.createElement("p");
     if (playerSelection === "pierre" && computerSelection === "ciseaux"){
         playerScore++;
         txt.textContent = "Gagné ! La pierre écrase les ciseaux.";
@@ -47,6 +51,7 @@ function playRound(playerSelection, computerSelection){
         txt.textContent = `Egalité ! Vous avez tous les deux choisis ${playerSelection}.`;   
     }
     logD.appendChild(txt);
+
 }
 
 function updateScore(playerScore, computerScore){
@@ -55,7 +60,6 @@ function updateScore(playerScore, computerScore){
 }
 
 function checkWinner(playerScore, computerScore) {
-    const h2 = document.createElement("h2")
     if (playerScore === 5){
         h2.textContent = `Vous avez gagné ${playerScore} points contre ${computerScore} points.`
         logD.append(h2);
@@ -63,6 +67,5 @@ function checkWinner(playerScore, computerScore) {
         h2.textContent = `Vous avez perdu ${playerScore} points contre ${computerScore} points.`
         logD.append(h2);
     }
-
+        
 }
-
