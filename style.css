@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(45deg, #fbda61, #ff5acd);
+}
+
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    margin: 150px;
+    gap: 20px;
+}
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 190px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80 px rgba(0, 0, 0, 0.15);
+    transition: 0.7s
+}
+
+.card:hover{
+    height: 450px;
+}
+
+.imgBx{
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+    overflow: hidden;
+    transition: 0.7s;
+}
+
+.card:hover .imgBx{
+    width: 250px;
+    height: 250px;
+}
+
+.imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.card .content .details {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: 0.7s;
+    transform: translateY(150px);
+}
+
+.card:hover .content .details{
+    transform: translateY(0px)
+}
+
+.card .content .details h2{
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.2em;
+}
+
+.card .content .details h2 p {
+    font-size: 0.75em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.card .content .details button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 700;
+    background: #ff5f95;
+    color: #fff;
+    cursor: pointer;
+}
+
+.details{
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Here for the "headers"*/
+
+.top{
+    gap: 30px;
+    text-align: center;
+}
+
+h1{
+    color: #fff;
+    font-size: 2.2em;
+    
+}
+
+.log .score {
+    color: #fff;
+    font-weight: 700;
+}
+.reset{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 700;
+    color: #910165;
+}
+

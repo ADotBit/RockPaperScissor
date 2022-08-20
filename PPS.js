@@ -1,5 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
+
+//select the divs/buttons in HTML
 const logD = document.querySelector(".log");
 const playerRun = document.querySelector(".player");
 const computerRun = document.querySelector(".computer");
@@ -24,7 +26,7 @@ buttons.forEach(button => {
     })
 })
 
-//disable buttons
+//Disable buttons
 function disableButtons(){
     buttons.forEach(button => {
         button.disabled = true;
@@ -73,11 +75,12 @@ function updateScore(playerScore, computerScore){
 function checkWinner(playerScore, computerScore) {
     if (playerScore === 5){
         h2.textContent = `Vous avez gagné ${playerScore} à ${computerScore} contre l'ordinateur !`
-        disableButtons()
+        disableButtons()//disable buttons after someone get 5 points
     }else if (computerScore === 5){
         h2.textContent = `Vous avez perdu ${playerScore} à ${computerScore} contre l'ordinateur..`
         disableButtons()
     }
     logD.append(h2);
+
     
 }

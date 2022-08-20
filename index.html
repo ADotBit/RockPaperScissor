@@ -3,24 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <link rel="stylesheet" href="style.css">
+
   <title>RockPaperScissor</title>
 </head>
 <body>
-  <h1>Voulez-vous jouer à un jeu ?</h1>
+<section class="top">
+  <div class="title"></div>
+    <h1>Pierre - Feuille - Ciseaux</h1>
+  </div>
 
   <div class="score">
     <p>Joueur: <span class="player">0</span></p>
     <p>Ordinateur: <span class="computer">0</span></p>
   </div>
-  <div id="btn">
-    <button id="btns" class="pierre">Pierre</button>
-    <button id="btns" class="feuille">Feuille</button>
-    <button id="btns" class="ciseaux">Ciseaux</button>
-  </div>
   <div class="log"></div>
-  <button class="reset">Reset</button>
-  
+</section>
+<section id="bottom">
+  <div class="container">
+    <div class="card">
+      <div class="imgBx">
+        <img src="img/pierre.png" alt="pierre">
+      </div>
+        <div class="content">
+          <div class="details">
+            <h2>Pierre</h2>
+            <p>La pierre écrase les ciseaux et gagne.</p>
+            <button id="btns" class="pierre">Pierre</button>
+          </div>
+        </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <img src="img/feuille.png" alt="feuille">
+      </div>
+        <div class="content">
+          <div class="details">
+          <h2>Feuille</h2>
+          <p>La feuille enveloppe la pierre et gagne.</p>
+          <button id="btns" class="feuille">Feuille</button>
+        </div>
+        </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <img src="img/ciseaux.png" alt="ciseaux">
+      </div>
+        <div class="content">
+          <div class="details">
+          <h2>Ciseaux</h2>
+          <p>Les ciseaux découpent la feuille et gagnent.</p>
+          <button id="btns" class="ciseaux">Ciseaux</button>
+        </div>
+    </div>
+  </div>
+</section>
+<button class="reset">Reset</button>
 </body>
 <script src="PPS.js"></script>
 </html>
