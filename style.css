@@ -132,11 +132,15 @@ body{
 h1{
     color: #fff;
     font-size: 2.2em;
-    
 }
 
 .log .score {
     color: #fff;
+    font-weight: 700;
+}
+
+p, span{
+    color: #910165;
     font-weight: 700;
 }
 .reset{
